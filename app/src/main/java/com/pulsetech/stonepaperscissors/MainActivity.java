@@ -17,11 +17,13 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView playerScore, resultText;
+    TextView playerScore, resultText, AIScore;
     ImageView robot;
     Dialog dialog;
     Button Return, PlayAgain;
 
+    int EnemyScore = 0;
+    int PlayerScore = 0;
     int playerChoice;
     CardView stone, paper, scissor;
 
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         paper = findViewById(R.id.paper);
         robot = findViewById(R.id.robot);
         scissor = findViewById(R.id.scissor);
+        playerScore = findViewById(R.id.playerScore);
+        AIScore = findViewById(R.id.AIScore);
 
         dialog = new Dialog(MainActivity.this);
         dialog.setContentView(R.layout.custom_dialog_box);
@@ -104,17 +108,19 @@ public class MainActivity extends AppCompatActivity {
         Results(playerChoice, AIChoice);
     }
 
-    // MAKAS 2 KAĞIT 1 TAŞ 0
     private void Results(int playerChoice, int AIChoice) {
         String result;
         if (playerChoice == AIChoice) {
             result = "Berabere!";
         } else if ((playerChoice == 0 && AIChoice == 2) || (playerChoice == 1 && AIChoice == 0) || (playerChoice == 2 && AIChoice == 1)) {
             result = "Siz Kazandınız!";
+            PlayerScore++;
+            playerScore.setText(String.valueOf(PlayerScore));
         } else {
             result = "Kaybettiniz!";
+            EnemyScore++;
+            AIScore.setText(String.valueOf(EnemyScore));
         }
-
         resultText.setText(result);
         dialog.show();
     }
