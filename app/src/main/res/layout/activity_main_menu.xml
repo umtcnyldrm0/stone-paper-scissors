@@ -1,40 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:orientation="horizontal"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="@color/ice"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ice"
+    android:orientation="vertical"
     tools:context=".MainMenu">
-
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TAŞ KAĞIT MAKAS"
-        android:textSize="50sp"
-        android:textAlignment="center"
         android:layout_marginTop="150dp"
-        android:fontFamily="@font/ubuntu_medium"/>
+        android:fontFamily="@font/ubuntu_medium"
+        android:text="TAŞ KAĞIT MAKAS"
+        android:textAlignment="center"
+        android:textSize="50sp" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Kullanıcı adınız">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu"
+            android:textSize="20sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 
     <Button
         android:id="@+id/btnStart"
-        android:layout_width="200dp"
-        android:layout_height="80dp"
-        android:text="BAŞLA"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:backgroundTint="@color/buttonColor"
-        android:textSize="30sp"
         android:fontFamily="@font/ubuntu_medium"
-        android:layout_centerInParent="true"/>
+        android:text="BAŞLA"
+        android:textSize="25sp" />
 
 
-
-
-
-</RelativeLayout>
+</LinearLayout>

@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="ice">#F6F7F2</color>
     <color name="buttonColor">#523D1F</color>
+    <color name="enemy">#E01931</color>
+    <color name="player">#2980B9</color>
 </resources>

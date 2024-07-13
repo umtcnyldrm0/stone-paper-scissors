@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.pulsetech.stonepaperscissors" />
+                  <option name="mobileSdkAppId" value="1:562414744444:android:05dcc2c75a6c4dc7dfeaf9" />
+                  <option name="projectId" value="rocpaperscissors-91b45" />
+                  <option name="projectNumber" value="562414744444" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

@@ -8,14 +8,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+
 
     TextView playerScore, resultText, AIScore;
     ImageView robot;
@@ -25,13 +27,21 @@ public class MainActivity extends AppCompatActivity {
     int EnemyScore = 0;
     int PlayerScore = 0;
     int playerChoice;
+
+    private String StringReceived;
+
+    private DatabaseReference myRef;
     CardView stone, paper, scissor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        Intent intent = getIntent();
+        StringReceived = intent.getStringExtra("Nickname");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("users").child(StringReceived);
+        myRef.child("username").setValue(StringReceived);
 
         stone = findViewById(R.id.stone);
         paper = findViewById(R.id.paper);
@@ -110,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void Results(int playerChoice, int AIChoice) {
         String result;
+
         if (playerChoice == AIChoice) {
             result = "Berabere!";
         } else if ((playerChoice == 0 && AIChoice == 2) || (playerChoice == 1 && AIChoice == 0) || (playerChoice == 2 && AIChoice == 1)) {
@@ -121,7 +132,13 @@ public class MainActivity extends AppCompatActivity {
             EnemyScore++;
             AIScore.setText(String.valueOf(EnemyScore));
         }
-        resultText.setText(result);
+        resultText.setText(result + "\n" + StringReceived + ": " + PlayerScore);
+
+        Map<String, Object> scoreUpdate = new HashMap<>();
+        scoreUpdate.put("username", StringReceived);
+        scoreUpdate.put("score", PlayerScore);
+        myRef.updateChildren(scoreUpdate);
+
         dialog.show();
     }
 }

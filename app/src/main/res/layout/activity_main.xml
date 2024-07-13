@@ -57,7 +57,9 @@
                     android:id="@+id/cardViewRobot"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true">
+                    android:layout_centerHorizontal="true"
+                    android:backgroundTint="@color/enemy"
+                    app:cardCornerRadius="50dp">
 
 
                     <ImageView
@@ -66,7 +68,7 @@
                         android:layout_height="100dp"
                         android:layout_centerInParent="true"
                         android:clickable="false"
-                        android:src="@drawable/start" />
+                        android:src="@drawable/ai" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -126,14 +128,15 @@
                     android:layout_height="100dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
+                    android:backgroundTint="@color/player"
                     android:clickable="true"
-                    app:cardCornerRadius="35dp"
+                    app:cardCornerRadius="55dp"
                     app:cardElevation="25dp">
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/stone" />
+                        android:src="@drawable/fist" />
 
 
                 </androidx.cardview.widget.CardView>
@@ -144,8 +147,9 @@
                     android:layout_height="100dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
+                    android:backgroundTint="@color/player"
                     android:clickable="true"
-                    app:cardCornerRadius="35dp"
+                    app:cardCornerRadius="50dp"
                     app:cardElevation="25dp">
 
                     <ImageView
@@ -160,8 +164,9 @@
                     android:layout_height="100dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
+                    android:backgroundTint="@color/player"
                     android:clickable="true"
-                    app:cardCornerRadius="35dp"
+                    app:cardCornerRadius="50dp"
                     app:cardElevation="25dp">
 
                     <ImageView
