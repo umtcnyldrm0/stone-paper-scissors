@@ -129,6 +129,7 @@
                     android:layout_height="100dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
+                    android:layout_marginTop="50dp"
                     android:backgroundTint="@color/player"
                     android:clickable="true"
                     app:cardCornerRadius="55dp"
@@ -146,6 +147,7 @@
                     android:id="@+id/scissor"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:layout_marginTop="50dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:backgroundTint="@color/player"
@@ -166,6 +168,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:backgroundTint="@color/player"
+                    android:layout_marginTop="50dp"
                     android:clickable="true"
                     app:cardCornerRadius="50dp"
                     app:cardElevation="25dp">
