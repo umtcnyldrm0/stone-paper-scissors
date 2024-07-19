@@ -59,7 +59,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:backgroundTint="@color/enemy"
-                    app:cardCornerRadius="50dp">
+                    app:cardCornerRadius="50dp"
+                    app:cardElevation="20dp">
 
 
                     <ImageView

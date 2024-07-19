@@ -8,10 +8,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -37,8 +40,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Intent intent = getIntent();
         StringReceived = intent.getStringExtra("Nickname");
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         myRef = database.getReference("users").child(StringReceived);
         myRef.child("username").setValue(StringReceived);
@@ -105,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (AIChoice) {
             case 0:
-                robot.setImageResource(R.drawable.stone);
+                robot.setImageResource(R.drawable.fist);
                 break;
             case 1:
                 robot.setImageResource(R.drawable.paper);

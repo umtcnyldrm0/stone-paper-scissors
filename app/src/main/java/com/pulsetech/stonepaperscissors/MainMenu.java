@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,26 +23,28 @@ public class MainMenu extends AppCompatActivity {
     Button start;
     private TextInputLayout textField;
     private TextInputEditText inputField;
-
-    private DatabaseReference databaseReference;
+    private DatabaseReference mRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_menu);
 
         textField = findViewById(R.id.textField);
         inputField = findViewById(R.id.inputField);
         start = findViewById(R.id.btnStart);
 
-        // Firebase Realtime Database referansını al
-        databaseReference = FirebaseDatabase.getInstance().getReference("usernames");
+        // Firebase initialization
+
+
+        mRef = FirebaseDatabase.getInstance().getReference();
+
+
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String nickname = inputField.getText().toString();
+                final String nickname = inputField.getText().toString().trim();
 
                 if (!TextUtils.isEmpty(nickname)) {
                     checkUsernameExists(nickname);
@@ -55,13 +56,14 @@ public class MainMenu extends AppCompatActivity {
     }
 
     private void checkUsernameExists(final String nickname) {
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild(nickname)) {
                     Toast.makeText(MainMenu.this, "Bu kullanıcı adı zaten kullanılıyor, lütfen başka bir ad seçin.", Toast.LENGTH_SHORT).show();
                 } else {
-                    databaseReference.child(nickname).setValue(true);
+                    // Username is available, save it to database
+                    mRef.child(nickname).setValue(true);
                     Intent startIntent = new Intent(MainMenu.this, MainActivity.class);
                     startIntent.putExtra("Nickname", nickname);
                     startActivity(startIntent);

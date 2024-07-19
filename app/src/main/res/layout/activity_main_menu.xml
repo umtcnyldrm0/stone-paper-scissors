@@ -4,7 +4,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ice"
+    android:background="@color/player"
     android:orientation="vertical"
     tools:context=".MainMenu">
 
@@ -16,6 +16,7 @@
         android:fontFamily="@font/ubuntu_medium"
         android:text="TAŞ KAĞIT MAKAS"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="50sp" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -25,7 +26,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:hint="Kullanıcı adınız">
+        android:backgroundTint="@color/white"
+        android:hint="Kullanıcı Adınızı Girin"
+        android:textColorHint="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputField"
@@ -43,10 +46,13 @@
         android:layout_height="70dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/buttonColor"
+        android:backgroundTint="#007BFF"
         android:fontFamily="@font/ubuntu_medium"
         android:text="BAŞLA"
         android:textSize="25sp" />
+
+
+    Z
 
 
 </LinearLayout>
